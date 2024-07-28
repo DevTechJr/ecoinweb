@@ -1,47 +1,65 @@
 {% extends "base.html" %} {% block title %}Company Dashboard{% endblock %} {%
 block content %}
-<img
-<div class="w-full md:w-1/2 flex flex-col mx-auto gap-4 shadow-lg text-center">
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-
+<div class="bird-container bird-container-one">
+  <div class="bird bird-one"></div>
+</div>
+<div class="bird-container bird-container-two">
+  <div class="bird bird-two"></div>
+</div>
+<div class="bird-container bird-container-three">
+  <div class="bird bird-three"></div>
+</div>
+<div class="bird-container bird-container-four">
+  <div class="bird bird-four"></div>
+</div>
+<div class="w-full md:w-4/5 flex flex-col mx-auto mt-8 gap-4 text-center">
   <div class="mx-auto">
-    <h1 class="text-3xl font-bold text-green-800" style="text-align: center;">
+    <h1 class="text-3xl font-bold text-green-800" style="text-align: center">
       {{company_details.CompanyName}}
     </h1>
     <div class="mt-4 px-4 text-2xl rounded-xl bg-"></div>
   </div>
-  <img style="text-align: center;" class="w-500 mx-auto h-400" src="https://i.ibb.co/5BVLyrn/trendline.png">
-  <div class="parallelogram"></div>
-   <h1 class="-mt-4 mb-4 text-xl font-bold text-green-800" style="text-align: center;">
-      Past Transactions (Most recent):
-    </h1>
-  {% for i in range(entries_length) %}
-  <div
-    class="text-gray-600 px-4 rounded-lg flex justify-between mb-2 border-t-4 border-green-800 mx-4 items-center"
-  >
-    <span class="font-bold text-green-600"> {{names[i]}} </span>
-    <span class="text-green-600 font-bold">
-      {{ company_transactions_list[i].pointsValue }} points
-      <span class="text-black">
-        <br />
-        ({{ todayDate }})</span
-      >
-    </span>
+
+  <img
+    class="w-500 mx-auto h-400"
+    src="https://i.ibb.co/5BVLyrn/trendline.png"
+    alt="Trendline"
+  />
+
+  <div class="bird-container2 bird-container-five">
+    <div class="bird bird-one"></div>
+  </div>
+  <div class="bird-container2 bird-container-six">
+    <div class="bird bird-two"></div>
+  </div>
+  <div class="bird-container2 bird-container-seven">
+    <div class="bird bird-three"></div>
+  </div>
+  <div class="bird-container2 bird-container-eight">
+    <div class="bird bird-four"></div>
   </div>
 
-  {% endfor %}
-  
-    <br />
-  <br />
-  <br />
-  <br />
-  <br />
+  <h1 class="-mt-16 mb-4 text-2xl font-bold text-green-800 text-center">
+    Past Transactions (Most recent):
+  </h1>
+
+  <div class="mx-4 space-y-2 mb-8">
+    {% for i in range(entries_length) %}
+    <div
+      class="bg-white border-b border-green-800 text-xl text-gray-800 px-4 py-3 rounded-lg shadow-md shadow-green-800 flex justify-between items-center"
+    >
+      <span class="font-bold text-green-600">{{ names[i] }}</span>
+      <span class="text-green-600 font-bold">
+        {{ company_transactions_list[i].pointsValue }} points
+        <span class="text-black block text-sm pt-2"> ({{ todayDate }}) </span>
+      </span>
+    </div>
+    {% endfor %}
+  </div>
 </div>
+
 <footer id="contact" class="bg-green-900 text-white py-4 text-center">
   <p>&copy; 2024 ecoin. All rights reserved.</p>
 </footer>
+
 {% endblock %}

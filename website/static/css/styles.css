@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 header {
   background: url("https://cdn.discordapp.com/attachments/1064307250098876426/1266977332397215805/trees.jpg?ex=66a71c17&is=66a5ca97&hm=f0b2591abb480953852fa827be035b50ff40406c2ad76e3987f8ad89a2ef2857&")
@@ -48,17 +49,176 @@ footer {
   padding: 1em 0;
 }
 
-.parallax {
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
+.bird {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg");
+  filter: invert(34%) sepia(55%) saturate(427%) hue-rotate(141deg)
+    brightness(93%) contrast(91%);
+  background-size: auto 100%;
+  width: 88px;
+  height: 125px;
+  will-change: background-position;
+
+  animation-name: fly-cycle;
+  animation-timing-function: steps(10);
+  animation-iteration-count: infinite;
 }
 
-.parallelogram {
-  width: 100%;
-  height: 50px;
-  background-color: #f0f0f0;
-  transform: skew(-20deg);
-  margin: 20px 0;
+.bird-one {
+  animation-duration: 1s;
+  animation-delay: -0.5s;
+}
+.bird-two {
+  animation-duration: 0.9;
+  animation-delay: -0.75s;
+}
+.bird-three {
+  animation-duration: 1.25s;
+  animation-delay: -0.25s;
+}
+.bird-four {
+  animation-duration: 1.1s;
+  animation-delay: -0.5s;
+}
+
+.bird-container {
+  position: absolute;
+  top: 20%;
+  left: -3%;
+  transform: scale(0) translateX(-10vw);
+  will-change: transform;
+
+  animation-name: fly-right-one;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.bird-container2 {
+  position: absolute;
+  top: 135%;
+  left: -3%;
+  transform: scale(0) translateX(-10vw);
+  will-change: transform;
+
+  animation-name: fly-right-one;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.bird-container-one {
+  animation-duration: 15s;
+  animation-delay: 0;
+}
+
+.bird-container-two {
+  animation-duration: 16s;
+  animation-delay: 1s;
+}
+
+.bird-container-three {
+  animation-duration: 14.6s;
+  animation-delay: 9.5s;
+}
+
+.bird-container-four {
+  animation-duration: 16s;
+  animation-delay: 10.25s;
+}
+
+.bird-container-five {
+  animation-duration: 7s;
+  animation-delay: 4s;
+}
+
+.bird-container-six {
+  animation-duration: 21s;
+  animation-delay: 3.5s;
+}
+
+.bird-container-seven {
+  animation-duration: 14s;
+  animation-delay: 11.6ss;
+}
+
+.bird-container-eight {
+  animation-duration: 19s;
+  animation-delay: 14.25s;
+}
+
+/* @keyframes fly-cycle {
+  100%{
+      background-position: -3600px 0;
+  }
+} */
+@keyframes fly-cycle {
+  100% {
+    background-position: -900px 0;
+  }
+}
+
+@keyframes fly-right-one {
+  0% {
+    transform: scale(0.3) translateX(-10vw);
+  }
+
+  10% {
+    transform: translateY(2vh) translateX(10vw) scale(0.4);
+  }
+
+  20% {
+    transform: translateY(0vh) translateX(30vw) scale(0.5);
+  }
+
+  30% {
+    transform: translateY(4vh) translateX(50vw) scale(0.6);
+  }
+
+  40% {
+    transform: translateY(2vh) translateX(70vw) scale(0.6);
+  }
+
+  50% {
+    transform: translateY(0vh) translateX(90vw) scale(0.6);
+  }
+
+  60% {
+    transform: translateY(0vh) translateX(110vw) scale(0.6);
+  }
+
+  100% {
+    transform: translateY(0vh) translateX(110vw) scale(0.6);
+  }
+}
+
+@keyframes fly-right-two {
+  0% {
+    transform: translateY(-2vh) translateX(-10vw) scale(0.5);
+  }
+
+  10% {
+    transform: translateY(0vh) translateX(10vw) scale(0.4);
+  }
+
+  20% {
+    transform: translateY(-4vh) translateX(30vw) scale(0.6);
+  }
+
+  30% {
+    transform: translateY(1vh) translateX(50vw) scale(0.45);
+  }
+
+  40% {
+    transform: translateY(-2.5vh) translateX(70vw) scale(0.5);
+  }
+
+  50% {
+    transform: translateY(0vh) translateX(90vw) scale(0.45);
+  }
+
+  51% {
+    transform: translateY(0vh) translateX(110vw) scale(0.45);
+  }
+
+  100% {
+    transform: translateY(0vh) translateX(110vw) scale(0.45);
+  }
 }

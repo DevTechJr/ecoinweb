@@ -1,4 +1,4 @@
-# Flask Web App Tutorial
+# ecoin web repo for starterhacks
 
 ## Setup & Installation
 

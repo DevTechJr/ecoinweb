@@ -90,7 +90,7 @@ def gain_point(PointsGained, CompanyId, UserId):
     user_info = User.query.get_or_404(int(UserId))
     company_info = Companies.query.get_or_404(int(CompanyId))
     user_info.points = user_info.points + int(PointsGained)
-    company_info.Balance = company_info.Balance + int(PointsGained//1000)
+    company_info.Balance = company_info.Balance + int(PointsGained*10//100)
     new_transaction = Transactions(receiverId=int(UserId), invokerId=int(CompanyId), pointsValue=int(PointsGained))
     db.session.add(new_transaction)
     db.session.commit()

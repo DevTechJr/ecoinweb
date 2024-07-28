@@ -1,23 +1,7 @@
-# ecoin web repo for starterhacks
+Welcome to ecoin, leading to a more greener world with every point earned.
 
-## Setup & Installation
 
-Make sure you have the latest version of Python installed.
+Resources used:
 
-```bash
-git clone <repo-url>
-```
 
-```bash
-pip install -r requirements.txt
-```
-
-## Running The App
-
-```bash
-python main.py
-```
-
-## Viewing The App
-
-Go to `http://127.0.0.1:5000`
+Made by: Anirudh Vangara, Alexander Li, Hetav Patel, Jaitra Bhatt 

@@ -25,10 +25,28 @@ block content %}
         <h2 class="text-2xl font-semibold text-green-900">
           {{ all_companies[i].CompanyName }}
         </h2>
-        <p class="text-green-700">Description: {{business_descriptions[i][2]}}</p>
+        <p class="text-green-700">
+          Description: {{business_descriptions[i][2]}}
+        </p>
         <p class="text-green-700">Type: {{business_descriptions[i][1]}}</p>
-        <p class="text-green-700">Points Range: {{business_descriptions[i][0]}}</p>
+        <p class="text-green-700">
+          Points Range: {{business_descriptions[i][0]}}
+        </p>
         <p class="text-green-700">Balance: ${{ all_companies[i].Balance }}</p>
+
+        <div class="mt-4 flex justify-between font-bold">
+          <button
+            href="/company/{{ all_companies[i].id }}"
+            class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700"
+          >
+            More Info
+          </button>
+          <button
+            class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+          >
+            Donate
+          </button>
+        </div>
       </div>
     </a>
     {% endfor %}

@@ -11,25 +11,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      crossorigin="anonymous"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      crossorigin="anonymous"
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
@@ -41,32 +23,31 @@
       type="text/css"
     />
     <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
       rel="stylesheet"
-      type="text/css"
+      href="{{ url_for('static', filename='css/styles.css') }}"
     />
-
     <script src="https://cdn.tailwindcss.com"></script>
-
     <title>{% block title %}Home{% endblock %}</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    {% if request.path == '/' %}
+    <nav
+      id="navbar"
+      class="navbar navbar-expand-lg navbar-dark text-md py-2 bg-green-900 fixed-top transform -translate-y-full opacity-0 transition-transform duration-300 ease-in-out"
+    >
       <button
         class="navbar-toggler"
         type="button"
         data-toggle="collapse"
-        data-target="#navbar"
+        data-target="#navbarNav"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbar">
-        <div class="navbar-nav flex-grow-1 ms-10 me-10">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav flex-grow-1">
           <a class="nav-item nav-link font-bold text-white mx-2">Ecoin</a>
           <a class="nav-item nav-link" id="home" href="/">Home</a>
-          <a class="nav-item nav-link" id="explore" href="/explore"
-            >Explore</a
-          >
+          <a class="nav-item nav-link" id="explore" href="/explore">Explore</a>
           <a class="nav-item nav-link" id="leaderboard" href="/leaderboard"
             >Leaderboard</a
           >
@@ -74,10 +55,9 @@
           <a class="nav-item nav-link" id="dashboard" href="/customerdashboard"
             >Dashboard</a
           >
-
           <div class="lg:ml-auto lg:flex lg:align-items-center justify-center">
             <p class="font-semibold text-white my-auto mx-2">
-              Welcome back, {{current_user.username}}!
+              Welcome back, {{current_user.first_name}}!
             </p>
             <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
           </div>
@@ -90,17 +70,56 @@
       </div>
     </nav>
 
-    {% with messages = get_flashed_messages(with_categories=true) %} {% if
-    messages %} {% for category, message in messages %} {% if category ==
+    {% else %}
+    <nav
+      id="navbar"
+      class="navbar navbar-expand-lg navbar-dark text-md py-2 bg-green-900"
+    >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav flex-grow-1">
+          <a class="nav-item nav-link font-bold text-white mx-2">Ecoin</a>
+          <a class="nav-item nav-link" id="home" href="/">Home</a>
+          <a class="nav-item nav-link" id="explore" href="/explore">Explore</a>
+          <a class="nav-item nav-link" id="leaderboard" href="/leaderboard"
+            >Leaderboard</a
+          >
+          {% if current_user.is_authenticated %}
+          <a class="nav-item nav-link" id="dashboard" href="/customerdashboard"
+            >Dashboard</a
+          >
+          <div class="lg:ml-auto lg:flex lg:align-items-center justify-center">
+            <p class="font-semibold text-white my-auto mx-2">
+              Welcome back, {{current_user.first_name}}!
+            </p>
+            <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+          </div>
+          {% else %}
+          <div class="lg:ml-auto lg:flex justify-center flex-row">
+            <a class="nav-item nav-link" id="login" href="/login">Login</a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+    {% endif %} {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %} {% for category, message in messages %} {% if category ==
     'error' %}
-    <div class="alert alert-danger alter-dismissable fade show" role="alert">
+    <div class="alert alert-danger alert-dismissable fade show" role="alert">
       {{ message }}
       <button type="button" class="close" data-dismiss="alert">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     {% else %}
-    <div class="alert alert-success alter-dismissable fade show" role="alert">
+    <div class="alert alert-success alert-dismissable fade show" role="alert">
       {{ message }}
       <button type="button" class="close" data-dismiss="alert">
         <span aria-hidden="true">&times;</span>
@@ -108,7 +127,8 @@
     </div>
     {% endif %} {% endfor %} {% endif %} {% endwith %}
 
-    <div class="container">{% block content %} {% endblock %}</div>
+    <div class="">{% block content %} {% endblock %}</div>
+
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

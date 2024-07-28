@@ -1,4 +1,52 @@
-{% extends "base.html" %} {% block title %}Customer Dashboard{% endblock %} {% block content
-%}
-Hello World
+{% extends "base.html" %} {% block title %}Customer Dashboard{% endblock %} {%
+block content %}
+<div class="w-full md:w-1/2 flex flex-col mx-auto gap-4 shadow-lg text-center">
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
+  <div class="mx-auto">
+    <h1 class="text-4xl font-bold text-green-800">Hi {{name}},</h1>
+    <div class="mt-4 px-4 rounded-xl bg-">
+      <h3 class="text-3xl font-bold text-green-800">
+        {{current_user.points}} points
+      </h3>
+      <h4 class="text-3xl font-bold text-green-800 my-2">
+        Est. ${{current_user.points / 10 }}
+      </h4>
+      <span class="text-xl font-bold text-green-900">(tax rebate value)</span>
+    </div>
+  </div>
+  {% for i in range(entries_length) %}
+  <div
+    class="text-gray-600 p-4 rounded-lg flex justify-between border-y-4 border-green-800 mx-4 items-center"
+  >
+    <span class="font-bold text-green-600"> {{ companies[i] }} </span>
+    <span class="text-green-600 font-bold">
+      +{{ user_transactions_list[i].pointsValue }} points
+      <span class="text-black">
+        <br />
+        ({{ todayDate }})</span
+      >
+    </span>
+  </div>
+
+  {% endfor %}
+
+  <div class="flex">
+    <a
+      href="/explore"
+      class="bg-green-800 text-white font-bold py-2 px-4 rounded-lg mx-auto my-4"
+      >Explore</a
+    >
+    <a
+      href="/leaderboard"
+      class="bg-black text-white font-bold py-2 px-4 rounded-lg mx-auto my-4"
+      >Leaderboard</a
+    >
+  </div>
+</div>
+
 {% endblock %}

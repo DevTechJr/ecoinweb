@@ -1,0 +1,49 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+header {
+  background: url("https://cdn.discordapp.com/attachments/1064307250098876426/1266977332397215805/trees.jpg?ex=66a71c17&is=66a5ca97&hm=f0b2591abb480953852fa827be035b50ff40406c2ad76e3987f8ad89a2ef2857&") no-repeat center center;
+  background-size: cover;
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+h1 {
+  font-size: 100px;
+}
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+nav ul li {
+  display: inline;
+  margin: 0 1em;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+section {
+  padding: 2em;
+  text-align: center;
+}
+.cta {
+  background-color: #f4f4f4;
+  padding: 2em;
+  border-top: 2px solid #ddd;
+}
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+}

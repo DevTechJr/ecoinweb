@@ -33,7 +33,7 @@ admin.add_view(UsersView(User, db.session))
 class Companies(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     CompanyName = db.Column(db.String(100))
-    Balance = db.Column(db.Integer)
+    Balance = db.Column(db.Float)
 
 
 class CompaniesView(ModelView):

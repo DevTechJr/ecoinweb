@@ -1,16 +1,36 @@
-{% extends "base.html" %} 
-
-{% block title %}Explore | Discover{% endblock %} 
-
-{% block content %}
+{% extends "base.html" %} {% block title %}Explore | Discover{% endblock %} {%
+block content %}
 <div class="container mx-auto p-6">
-  <h1 class="text-3xl font-bold mb-6">Companies</h1>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    {% for company in all_companies %}
-    <div class="bg-white shadow-md rounded-lg p-4 border border-gray-200">
-      <h2 class="text-xl font-semibold">{{ company.CompanyName }}</h2>
-      <p class="text-gray-600">Balance: ${{ company.Balance }}</p>
-    </div>
+  <h1 class="text-4xl font-bold text-center mb-8 text-green-700">
+    Explore Companies
+  </h1>
+
+  <section class="bg-green-100 p-6 rounded-lg mb-8">
+    <h2 class="text-2xl font-semibold text-green-900 mb-4">
+      Discover Our Partners
+    </h2>
+    <p class="text-green-800">
+      Explore the innovative companies leading the way in sustainable solutions.
+      Learn about their contributions to eco-friendly practices and how they
+      manage resources efficiently.
+    </p>
+  </section>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {% for i in range(entries_length) %}
+    <a href="/company/{{ all_companies[i].id }}" class="block">
+      <div
+        class="bg-white shadow-lg rounded-lg p-6 border border-gray-200 hover:shadow-xl transition"
+      >
+        <h2 class="text-2xl font-semibold text-green-900">
+          {{ all_companies[i].CompanyName }}
+        </h2>
+        <p class="text-green-700">Description: {{business_descriptions[i][2]}}</p>
+        <p class="text-green-700">Type: {{business_descriptions[i][1]}}</p>
+        <p class="text-green-700">Points Range: {{business_descriptions[i][0]}}</p>
+        <p class="text-green-700">Balance: ${{ all_companies[i].Balance }}</p>
+      </div>
+    </a>
     {% endfor %}
   </div>
 </div>

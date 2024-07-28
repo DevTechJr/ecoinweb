@@ -1,24 +1,57 @@
 {% extends "base.html" %} {% block title %}Leaderboard{% endblock %} {% block
 content %}
 <div class="container mx-auto p-6">
-  <h1 class="text-3xl font-bold mb-6">Leaderboard</h1>
+  <h1 class="text-4xl font-bold text-center mb-8 text-green-700">
+    Leaderboard
+  </h1>
+
+  <section class="bg-green-100 p-6 rounded-lg mb-8">
+    <h2 class="text-2xl font-semibold text-green-900 mb-4">
+      About the Leaderboard
+    </h2>
+    <p class="text-green-800">
+      Our leaderboard highlights the top contributors to our community. Points
+      are awarded for engagement, sustainability efforts, and more. Join us in
+      recognizing the impact our members have on driving positive change!
+    </p>
+  </section>
+
   <div class="overflow-x-auto">
-    <table class="min-w-full bg-white border border-gray-200">
+    <table class="min-w-full bg-white border border-gray-200 shadow-lg">
       <thead>
-        <tr class="bg-gray-100">
-          <th class="py-2 px-4 border-b">First Name</th>
-          <th class="py-2 px-4 border-b">Last Name</th>
-          <th class="py-2 px-4 border-b">Social Media</th>
-          <th class="py-2 px-4 border-b">Points</th>
+        <tr class="bg-green-600 text-white">
+          <th class="py-3 px-4 border-b">First Name</th>
+          <th class="py-3 px-4 border-b">Last Name</th>
+          <th class="py-3 px-4 border-b">Social Media</th>
+          <th class="py-3 px-4 border-b">Points</th>
         </tr>
       </thead>
       <tbody>
         {% for customer in customers %}
-        <tr class="hover:bg-gray-50">
-          <td class="py-2 px-4 border-b">{{ customer.first_name }}</td>
-          <td class="py-2 px-4 border-b">{{ customer.last_name }}</td>
-          <td class="py-2 px-4 border-b">{{ customer.social_media }}</td>
-          <td class="py-2 px-4 border-b">{{ customer.points }}</td>
+        <tr class="hover:bg-green-50">
+          <td class="py-3 px-4 border-b text-green-900">
+            {{ customer.first_name }}
+          </td>
+          <td class="py-3 px-4 border-b text-green-900">
+            {{ customer.last_name }}
+          </td>
+          <td class="py-3 px-4 border-b text-green-900">
+            <a
+              href="{{ customer.social_media }}"
+              class="flex items-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
+                alt="Instagram"
+                class="w-4 h-4"
+              />
+            </a>
+          </td>
+          <td class="py-3 px-4 border-b text-green-900">
+            {{ customer.points }}
+          </td>
         </tr>
         {% endfor %}
       </tbody>
@@ -26,3 +59,4 @@ content %}
   </div>
 </div>
 {% endblock %}
+

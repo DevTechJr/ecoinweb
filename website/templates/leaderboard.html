@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %}Leaderboard{% endblock %} {% block
+content %}
+<div class="container mx-auto p-6">
+  <h1 class="text-3xl font-bold mb-6">Leaderboard</h1>
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white border border-gray-200">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="py-2 px-4 border-b">First Name</th>
+          <th class="py-2 px-4 border-b">Last Name</th>
+          <th class="py-2 px-4 border-b">Social Media</th>
+          <th class="py-2 px-4 border-b">Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for customer in customers %}
+        <tr class="hover:bg-gray-50">
+          <td class="py-2 px-4 border-b">{{ customer.first_name }}</td>
+          <td class="py-2 px-4 border-b">{{ customer.last_name }}</td>
+          <td class="py-2 px-4 border-b">{{ customer.social_media }}</td>
+          <td class="py-2 px-4 border-b">{{ customer.points }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

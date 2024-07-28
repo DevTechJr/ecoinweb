@@ -3,10 +3,10 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 header {
-  background: url("https://cdn.discordapp.com/attachments/1064307250098876426/1266977332397215805/trees.jpg?ex=66a71c17&is=66a5ca97&hm=f0b2591abb480953852fa827be035b50ff40406c2ad76e3987f8ad89a2ef2857&") no-repeat center center;
+  background: url("https://cdn.discordapp.com/attachments/1064307250098876426/1266977332397215805/trees.jpg?ex=66a71c17&is=66a5ca97&hm=f0b2591abb480953852fa827be035b50ff40406c2ad76e3987f8ad89a2ef2857&")
+    no-repeat center center;
   background-size: cover;
   color: white;
   height: 100vh;
@@ -46,4 +46,19 @@ footer {
   color: white;
   text-align: center;
   padding: 1em 0;
+}
+
+.parallax {
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.parallelogram {
+  width: 100%;
+  height: 50px;
+  background-color: #f0f0f0;
+  transform: skew(-20deg);
+  margin: 20px 0;
 }

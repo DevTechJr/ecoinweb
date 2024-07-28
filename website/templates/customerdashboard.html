@@ -1,22 +1,27 @@
 {% extends "base.html" %} {% block title %}Customer Dashboard{% endblock %} {%
 block content %}
-<div class="w-full md:w-1/2 flex flex-col mx-auto gap-4 shadow-lg text-center">
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-
+<div
+  class="w-full md:w-1/2 flex flex-col mx-auto gap-4 shadow-lg text-center p-10"
+>
   <div class="mx-auto">
-    <h1 class="text-4xl font-bold text-green-800">Hi {{name}},</h1>
-    <div class="mt-4 px-4 rounded-xl bg-">
-      <h3 class="text-3xl font-bold text-green-800">
-        {{current_user.points}} points
-      </h3>
-      <h4 class="text-3xl font-bold text-green-800 my-2">
-        Est. ${{current_user.points / 10 }}
+    <h1 class="text-4xl font-bold text-green-800">Hi, {{name}}!</h1>
+    <div class="mt-4 px-4 rounded-xl text-white bg-green-800 py-2">
+      <div
+        class="text-3xl font-bold mx-auto text-center flex items-center justify-center rounded-lg"
+      >
+        {{current_user.points}}
+        <span class="ml-1">
+          <img
+            class="h-10"
+            src="https://media.discordapp.net/attachments/1266893920642531442/1267158332594978816/ecoin.png?ex=66a7c4a9&is=66a67329&hm=3e34a931fe3a07d992625d0d1bc10191f8251199e352ab902f111a592bf7e42c&=&format=webp&quality=lossless&width=924&height=734"
+            alt="Logo"
+          />
+        </span>
+      </div>
+      <h4 class="text-3xl font-bold my-2">
+        est. ${{current_user.points / 10 }}
       </h4>
-      <span class="text-xl font-bold text-green-900">(tax rebate value)</span>
+      <span class="text-xl font-bold text-slate-300">(tax rebate value)</span>
     </div>
   </div>
   {% for i in range(entries_length) %}
@@ -26,15 +31,10 @@ block content %}
     <span class="font-bold text-green-600"> {{ companies[i] }} </span>
     <span class="text-green-600 font-bold">
       +{{ user_transactions_list[i].pointsValue }} points
-      <span class="text-black">
-        <br />
-        ({{ todayDate }})</span
-      >
+      <span class="text-black"><br />({{ todayDate }})</span>
     </span>
   </div>
-
   {% endfor %}
-
   <div class="flex">
     <a
       href="/explore"
@@ -49,4 +49,7 @@ block content %}
   </div>
 </div>
 
+<footer id="contact" class="bg-green-900 text-white py-4 text-center">
+  <p>&copy; 2024 ecoin. All rights reserved.</p>
+</footer>
 {% endblock %}
